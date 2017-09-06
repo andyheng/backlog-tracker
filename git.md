@@ -20,6 +20,8 @@ Basically, the workflow is
 `git status` - Displays tracked and untracked files
 `git add` - Takes files from the working directory and adds them to the staging area
 `git add -A` - Adds all working directory files to the staging area
+`git add *.[extension]` - Adds files with a given extension; `git add *.html` would add all html files but nothing else
+`git reset HEAD [file]` - Removes a file in the staging area
 
 ## Committing
 
