@@ -1,0 +1,63 @@
+<% include ../partials/header %>
+
+<h1>Tracker for User Page</h1>
+<a href="/games/new">Add new</a>
+
+<h3>Backlog</h3>
+
+<div id="backlog-gameList">
+  <% user.gamesCollection.forEach(function(game) { %>
+    <% if (!game.completed) { %>
+      <div class="game-list-item">
+        <img src="<%=game.image%>" alt="<%=game.title%>" class="game-img">
+        <p class="hide playing"><%=game.nowPlaying %></p>
+        <div class="text-grouped-content">
+          <h4><%= game.title %></h4>
+          <a href="/games/<%=game._id%>/edit" class="user-button">Edit</a>
+          <form class="delete-form" action="/games/<%=game._id%>?_method=DELETE" method="post">
+            <button class="user-button">Delete</button>
+          </form>
+          <p><%= game.platform %></p>
+          <p><%= game.description %></p>
+        </div>
+      </div>
+    <% } %>
+  <% }) %>
+</div>
+
+<h3>Completed</h3>
+<div id="completed-gameList">
+  <% user.gamesCollection.forEach(function(game) { %>
+    <% if (game.completed) { %>
+      <div class="game-list-item">
+        <img src="<%=game.image%>" alt="<%=game.title%>" class="game-img">
+        <p class="hide playing"><%=game.nowPlaying %></p>
+        <div class="text-grouped-content">
+          <h4><%= game.title %></h4>
+          <a href="/games/<%=game._id%>/edit" class="user-button">Edit</a>
+          <form class="delete-form" action="/games/<%=game._id%>?_method=DELETE" method="post">
+            <button class="user-button">Delete</button>
+          </form>
+          <p><%= game.platform %></p>
+          <p><%= game.description %></p>
+        </div>
+      </div>
+    <% } %>
+  <% }) %>
+</div>
+
+<script>
+  let gamelist = document.getElementById("backlog-gameList");
+  let allgames = document.getElementsByClassName("game-list-item");
+  let playingcheck = document.getElementsByClassName("playing");
+
+  for (let i = 0, len = playingcheck.length; i < len; i++) {
+    if (playingcheck[i].innerHTML === "true") {
+      playingcheck[i].parentNode.classList.add("now-playing");
+      gamelist.insertBefore(playingcheck[i].parentNode, gamelist.firstElementChild);
+    }
+  }
+
+</script>
+
+<% include ../partials/footer %>

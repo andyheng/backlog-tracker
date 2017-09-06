@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracker @ Home</title>
+    <link rel="stylesheet" href="/css/foundation.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+
+  <body class="sticky">
+    <div class="grid-container sticky-content">
+      <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text"><a href="/">Tracker</a></li>
+          </ul>
+        </div>
+
+        <div class="top-bar-right">
+          <ul class="menu" id="right-nav-menu">
+            <% if (!currentUser) { %>
+              <li><a href="/register">Register</a></li>
+              <li><a href="/login">Login</a></li>
+            <% } else { %>
+              <li><a href="/logout">Logout</a></li>
+              <li><strong><a href="/users/<%= currentUser.username %>">Signed in as <%= currentUser.username %></a></strong></li>
+            <% } %>
+
+          </ul>
+        </div>
+      </div>

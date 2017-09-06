@@ -19,7 +19,9 @@ Basically, the workflow is
 
 `git status` - Displays tracked and untracked files
 `git add` - Takes files from the working directory and adds them to the staging area
+`git add -A` - Adds all working directory files to the staging area
 
 ## Committing
 
 `git commit -m "String" ` - Commits the files in the staging area to the git area. -m allows us to write a description for the commit.
+`git log` - Shows log of commit history

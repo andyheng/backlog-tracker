@@ -1,0 +1,80 @@
+<% include ../partials/header %>
+
+<h2>Tracker for User Page</h2>
+<a href="/games/new">Add new</a>
+
+<h3>Backlog</h3>
+<table class="games-table stack">
+  <thead>
+    <th width="50">#</th>
+    <th width="300">Title</th>
+    <th width="50">Platform</th>
+    <th class="centered" width="250">Image</th>
+    <th width="450">Description</th>
+  </thead>
+
+  <tbody>
+    <p class="hide">No games here! Try adding something</p>
+    <% user.gamesCollection.forEach(function(game) { %>
+      <% if (!game.completed) { %>
+        <tr>
+          <td>
+            <%= game.title %>
+            <a href="/games/<%= game._id %>/edit">Edit</a>
+            <form method="POST" action="/games/<%= game._id %>?_method=DELETE">
+              <button class="button">Delete</button>
+            </form>
+          </td>
+          <td><%= game.platform %></td>
+          <td class="centered"><img src="<%= game.image %>"></td>
+          <td><%= game.description %></td>
+        </tr>
+      <% } %>
+    <% }) %>
+  </tbody>
+</table>
+
+<h3>Completed</h3>
+<table class="games-table">
+  <thead>
+    <th width="50">#</th>
+    <th width="300">Title</th>
+    <th width="50">Platform</th>
+    <th class="centered" width="250">Image</th>
+    <th width="450">Description</th>
+  </thead>
+
+  <tbody>
+    <p class="hide">No games here! Try adding something</p>
+    <% user.gamesCollection.forEach(function(game) { %>
+      <% if (game.completed) { %>
+        <tr>
+          <td>
+            <%= game.title %>
+            <a href="/games/<%= game._id %>/edit">Edit</a>
+            <form method="POST" action="/games/<%= game._id %>?_method=DELETE">
+              <button class="button">Delete</button>
+            </form>
+          </td>
+          <td><%= game.platform %></td>
+          <td class="centered"><img src="<%= game.image %>"></td>
+          <td><%= game.description %></td>
+        </tr>
+      <% } %>
+    <% }) %>
+  </tbody>
+</table>
+
+<script src="/js/index.js"></script>
+
+<script type="text/javascript">
+  let user = <%- JSON.stringify(user) %>
+  console.log(user);
+  console.log(user.gamesCollection);
+
+
+</script>
+
+
+
+<% include ../partials/footer %>

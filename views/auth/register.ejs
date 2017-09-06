@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+<h1>why</h1>
+
+<div class="row">
+  <form action="/register" method="POST">
+    <div class="row">
+      <div class="medium-12 columns">
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="Username">
+      </div>
+
+      <div class="medium-12 columns">
+        <label for="password">Game Platform</label>
+        <input type="password" name="password" placeholder="password">
+      </div>
+    </div>
+
+    <button type="submit" name="button" class="button">Submit</button>
+  </form>
+</div>
+
+<% include ../partials/footer %>

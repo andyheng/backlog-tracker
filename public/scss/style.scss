@@ -1,0 +1,84 @@
+$grid-width: 1178px;
+$center-text: center;
+$light-grey: #dadada;
+$darker-grey: #acacac;
+$almost-black: #171717;
+$my-fonts: Verdana, sans-serif;
+
+//Rounded edges mixin
+@mixin border-radius($radius) {
+-webkit-border-radius: $radius;
+   -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+        border-radius: $radius;
+}
+
+//Sticky footer
+.sticky {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.sticky-content {
+  flex: 1;
+}
+
+.grid-container {
+  width: $grid-width;
+}
+
+.button {
+  @include border-radius(10px);
+}
+
+.centered {
+  text-align: $center-text;
+}
+
+.text-grouped-content {
+  display: inline-block;
+}
+
+.game-list-item {
+  margin: 10px 0;
+}
+
+.game-list-item:nth-child(even) {
+  background: $light-grey;
+}
+
+.game-img {
+  vertical-align: top;
+}
+
+.text-grouped-content {
+  padding: 5px 10px;
+}
+
+.user-button {
+  @include border-radius(3px);
+  background: $darker-grey;
+  padding: 3px 5px;
+  cursor: pointer;
+  color: $almost-black;
+  font-family: $my-fonts;
+  font-size: 0.8em;
+  line-height: normal;
+}
+
+.user-button:hover {
+  color: red;
+}
+
+.delete-form {
+  display: inline-block;
+}
+
+.now-playing {
+  background: #b4daad !important;
+}
+
+#playing {
+  margin-left: 10px;
+}

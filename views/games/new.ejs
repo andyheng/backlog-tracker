@@ -1,0 +1,62 @@
+<% include ../partials/header %>
+
+<h1>Add new game</h1>
+
+<form class="form-control" action="/games" method="post">
+  <label for="">
+    Game Title
+    <input type="text" name="game[title]" placeholder="Game Title">
+  </label>
+
+  <label>
+    Game Platform
+    <input type="text" name="game[platform]" placeholder="Platform">
+  </label>
+
+  <label>
+    Game Image URL
+    <input type="text" name="game[image]" placeholder="Image URL" aria-describedby="imageHelpText">
+    <p class="help-text" id="imageHelpText">Upload to imgur as 200x200 image</p>
+  </label>
+
+  <fieldset>
+    <legend>Status</legend>
+    <div>
+      <input type="radio" name="game[completed]" value=false id="backlogged"><label for="backlogged">Backlog</label>
+    </div>
+    <div id="play-check" class="hide">
+      <input type="checkbox" name="game[nowPlaying]" id="playing"><label for="playing">Currently playing?</label>
+    </div>
+    <div>
+      <input type="radio" name="game[completed]" value=true id="completed"><label for="completed">Completed</label>
+    </div>
+  </fieldset>
+
+  <label for="description">
+    Description
+    <textarea name="game[description]" rows="8" cols="80" id="description" placeholder="Description / progress..."></textarea>
+  </label>
+
+  <button type="submit" name="button" class="button">Submit</button>
+</form>
+
+<script type="text/javascript">
+  let np = document.getElementById("play-check");
+  let bl = document.getElementById("backlogged");
+  let cp = document.getElementById("completed");
+  let dis = document.getElementById("playing");
+
+      bl.addEventListener("click", function() {
+        np.classList.remove("hide");
+        dis.disabled = false;
+      })
+
+      cp.addEventListener("click", function() {
+        np.classList.add("hide");
+        dis.disabled = true;
+      })
+
+  console.log(np);
+  console.log(bl);
+</script>
+<% include ../partials/footer %>
