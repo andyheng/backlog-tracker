@@ -14,4 +14,12 @@ Basically, the workflow is
   1. Work on files in the working Directory
   2. Add them to the staging Area
   3. Commit files in the staging area
-`git add`
+
+## Controls
+
+`git status` - Displays tracked and untracked files
+`git add` - Takes files from the working directory and adds them to the staging area
+
+## Committing
+
+`git commit -m "String" ` - Commits the files in the staging area to the git area. -m allows us to write a description for the commit.
