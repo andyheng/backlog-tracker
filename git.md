@@ -65,3 +65,4 @@ We can also use branches to maybe add new features, or testing new code while no
 1. Create a new repo on GitHub.
 2. Take the given HTTPS link, and plug it into `git remote add origin [url]` in the cmd, and run `git remote -v` to check.
 3. Run `git push` to push the commit to GitHub, or `git push origin master` to ensure the master branch commit is pushed.
+4. Might have to use `git push --set-upstream origin master` on the first commit
